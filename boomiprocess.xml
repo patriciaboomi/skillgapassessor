@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><Component xmlns:bns="http://api.platform.boomi.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branchId="QjoyNzI2MTA" branchName="main" componentId="99a6bacc-e926-4b65-8864-b52d26444f17" createdBy="patriciabradby@boomi.com" createdDate="2024-09-26T20:03:57Z" currentVersion="true" deleted="false" folderFullPath="Solutions Team/Moore/Skills Gap Assessor" folderId="Rjo3MDc3MTA2" folderName="Skills Gap Assessor" modifiedBy="patriciabradby@boomi.com" modifiedDate="2024-09-30T18:34:38Z" name="Feed resume to LLM" type="process" version="30">
+  <bns:encryptedValues/>
+  <bns:description/>
+  <bns:object>
+    <process allowSimultaneous="true" enableUserLog="false" processLogOnErrorOnly="false" purgeDataImmediately="false" updateRunDates="false" workload="general">
+      <shapes>
+        <shape image="start" name="shape1" shapetype="start" userlabel="" x="48.0" y="46.0">
+          <configuration>
+            <connectoraction actionType="Listen" allowDynamicCredentials="NONE" connectorType="fss" hideSettings="true" operationId="7d8c11dd-940d-43ee-898b-fac8fb29c516">
+              <parameters/>
+              <dynamicProperties/>
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape1.dragpoint1" toShape="shape13" x="224.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="documentproperties_icon" name="shape13" shapetype="documentproperties" userlabel="Set DDP_LLM_PROMPT" x="240.0" y="48.0">
+          <configuration>
+            <documentproperties>
+              <documentproperty defaultValue="" isDynamicCredential="false" isTradingPartner="false" name="Dynamic Document Property - DDP_LLM_PROMPT" persist="false" propertyId="dynamicdocument.DDP_LLM_PROMPT" shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue key="2" valueType="static">
+                    <staticparameter staticproperty="Give me a list of the top 5 things I should learn knowing that my goal is: "/>
+                  </parametervalue>
+                  <parametervalue key="1" valueType="profile">
+                    <profileelement elementId="3" elementName="targetrole (Root/Object/targetrole)" profileId="34dfc703-7800-4b4f-a0c3-cabb43a42767" profileType="profile.json"/>
+                  </parametervalue>
+                  <parametervalue key="3" valueType="static">
+                    <staticparameter staticproperty="Provide the response in text/HTML format. Return a comma-delimited list with no additional information. For example, do not include any HTML code tags such as &lt;html&gt; or &lt;body&gt; .  Also do not include headers.  Only return the comma-delimited list of the 5 topics I should learn."/>
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape13.dragpoint1" toShape="shape17" x="416.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="map_icon" name="shape14" shapetype="map" userlabel="" x="815.0" y="48.0">
+          <configuration>
+            <map mapId="ce418ae1-e480-4808-847a-cc6c2f36b23d"/>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape14.dragpoint1" toShape="shape16" x="992.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="message_icon" name="shape17" shapetype="message" userlabel="Bring Base64 as Current Document" x="431.0" y="48.0">
+          <configuration>
+            <message combined="false">
+              <msgTxt>{1}</msgTxt>
+              <msgParameters>
+                <parametervalue key="0" valueType="profile">
+                  <profileelement elementId="4" elementName="resume (Root/Object/resume)" profileId="34dfc703-7800-4b4f-a0c3-cabb43a42767" profileType="profile.json"/>
+                </parametervalue>
+              </msgParameters>
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape17.dragpoint1" toShape="shape12" x="608.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="connectoraction_icon" name="shape16" shapetype="connectoraction" userlabel="" x="1007.0" y="48.0">
+          <configuration>
+            <connectoraction actionType="POST" allowDynamicCredentials="NONE" connectionId="68bb1a24-79d9-4bcf-b111-2d3e7463fd47" connectorType="officialboomi-X3979C-opena2-prod" hideSettings="false" operationId="b9cc6d37-56a7-48fe-818f-9e46cdf288a3" parameter-profile="4b3f5de4-c5a9-41e0-b011-af81775c1709">
+              <parameters/>
+              <dynamicProperties/>
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape16.dragpoint1" toShape="shape19" x="1184.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="dataprocess_icon" name="shape12" shapetype="dataprocess" userlabel="Removes special characters. Additional mechanisms can be added." x="623.0" y="48.0">
+          <configuration>
+            <dataprocess>
+              <step index="1" key="1" name="Search/Replace" processtype="1">
+                <dataprocessreplace replacewith="" searchType="document" texttofind="&quot;"/>
+              </step>
+              <step index="2" key="2" name="Search/Replace" processtype="1">
+                <dataprocessreplace replacewith="" searchType="document" texttofind="\\n"/>
+              </step>
+              <step index="3" key="3" name="Search/Replace" processtype="1">
+                <dataprocessreplace replacewith="" searchType="document" texttofind="[\t]"/>
+              </step>
+              <step index="4" key="4" name="Search/Replace" processtype="1">
+                <dataprocessreplace replacewith="" searchType="document" texttofind="[\n]"/>
+              </step>
+              <step index="5" key="5" name="Search/Replace" processtype="1">
+                <dataprocessreplace replacewith="" searchType="document" texttofind="[\r]"/>
+              </step>
+              <step index="6" key="6" name="Search/Replace" processtype="1">
+                <dataprocessreplace replacewith="" searchType="document" texttofind="\r\n"/>
+              </step>
+              <step index="7" key="7" name="Search/Replace" processtype="1">
+                <dataprocessreplace replacewith="" searchType="document" texttofind="\r"/>
+              </step>
+            </dataprocess>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape12.dragpoint1" toShape="shape14" x="800.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="message_icon" name="shape19" shapetype="message" userlabel="Save only topics" x="1199.0" y="48.0">
+          <configuration>
+            <message combined="false">
+              <msgTxt>{1}</msgTxt>
+              <msgParameters>
+                <parametervalue key="0" valueType="profile">
+                  <profileelement elementId="49" elementName="content (Object/choices/Array/items1/Object/message/Object/content)" profileId="b0a57cf2-2d2c-4862-8f0d-ca7e7e4c9566" profileType="profile.json"/>
+                </parametervalue>
+              </msgParameters>
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape19.dragpoint1" toShape="shape22" x="1376.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="processcall_icon" name="shape22" shapetype="processcall" userlabel="" x="1391.0" y="48.0">
+          <configuration>
+            <processcall abort="true" processId="79eb5cf2-6eb9-414d-bae5-54b529036378" wait="true">
+              <parameters/>
+              <returnpaths>
+                <returnpaths childShapeName="shape6"/>
+              </returnpaths>
+            </processcall>
+          </configuration>
+          <dragpoints>
+            <dragpoint identifier="shape6" name="shape22.dragpoint1" toShape="shape24" x="1568.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="map_icon" name="shape24" shapetype="map" userlabel="" x="1583.0" y="48.0">
+          <configuration>
+            <map mapId="dd65535a-726e-4670-af97-c32d1bc0fdbb"/>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape24.dragpoint1" toShape="shape26" x="1760.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+        <shape image="returndocuments_icon" name="shape25" shapetype="returndocuments" x="1967.0" y="48.0">
+          <configuration>
+            <returndocuments/>
+          </configuration>
+          <dragpoints/>
+        </shape>
+        <shape image="dataprocess_icon" name="shape26" shapetype="dataprocess" userlabel="" x="1775.0" y="48.0">
+          <configuration>
+            <dataprocess>
+              <step index="1" key="1" name="Combine Documents" processtype="9">
+                <dataprocesscombine profileType="json">
+                  <JSONOptions combineIntoLinkElementKey="null" linkElementKey="3" linkElementName="ArrayElement1 (Root/Array/ArrayElement1)" profileId="5a1abb66-98d1-4f27-9fb9-23c6f27f9fe9"/>
+                </dataprocesscombine>
+              </step>
+            </dataprocess>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape26.dragpoint1" toShape="shape25" x="1952.0" y="56.0"/>
+          </dragpoints>
+        </shape>
+      </shapes>
+    </process>
+  </bns:object>
+  <bns:processOverrides/>
+</Component>
