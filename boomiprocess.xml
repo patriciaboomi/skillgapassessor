@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><Component xmlns:bns="http://api.platform.boomi.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branchId="QjoyNzI2MTA" branchName="main" componentId="99a6bacc-e926-4b65-8864-b52d26444f17" createdBy="patriciabradby@boomi.com" createdDate="2024-09-26T20:03:57Z" currentVersion="true" deleted="false" folderFullPath="Solutions Team/Moore/Skills Gap Assessor" folderId="Rjo3MDc3MTA2" folderName="Skills Gap Assessor" modifiedBy="patriciabradby@boomi.com" modifiedDate="2024-09-30T18:34:38Z" name="Feed resume to LLM" type="process" version="30">
+<?xml version="1.0" encoding="UTF-8"?><Component xmlns:bns="http://api.platform.boomi.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branchId="QjoyNzI2MTA" branchName="main" componentId="99a6bacc-e926-4b65-8864-b52d26444f17" createdBy="patriciabradby@boomi.com" createdDate="2024-09-26T20:03:57Z" currentVersion="true" deleted="false" folderFullPath="Solutions Team/Moore/Skills Gap Assessor" folderId="Rjo3MDc3MTA2" folderName="Skills Gap Assessor" modifiedBy="patriciabradby@boomi.com" modifiedDate="2024-09-30T20:20:35Z" name="Feed resume to LLM" type="process" version="31">
   <bns:encryptedValues/>
   <bns:description/>
   <bns:object>
@@ -37,7 +37,7 @@
             <dragpoint name="shape13.dragpoint1" toShape="shape17" x="416.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="map_icon" name="shape14" shapetype="map" userlabel="" x="815.0" y="48.0">
+        <shape image="map_icon" name="shape14" shapetype="map" userlabel="" x="816.0" y="48.0">
           <configuration>
             <map mapId="ce418ae1-e480-4808-847a-cc6c2f36b23d"/>
           </configuration>
@@ -45,7 +45,7 @@
             <dragpoint name="shape14.dragpoint1" toShape="shape16" x="992.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="message_icon" name="shape17" shapetype="message" userlabel="Bring Base64 as Current Document" x="431.0" y="48.0">
+        <shape image="message_icon" name="shape17" shapetype="message" userlabel="Bring Base64 as Current Document" x="432.0" y="48.0">
           <configuration>
             <message combined="false">
               <msgTxt>{1}</msgTxt>
@@ -60,7 +60,7 @@
             <dragpoint name="shape17.dragpoint1" toShape="shape12" x="608.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="connectoraction_icon" name="shape16" shapetype="connectoraction" userlabel="" x="1007.0" y="48.0">
+        <shape image="connectoraction_icon" name="shape16" shapetype="connectoraction" userlabel="" x="1008.0" y="48.0">
           <configuration>
             <connectoraction actionType="POST" allowDynamicCredentials="NONE" connectionId="68bb1a24-79d9-4bcf-b111-2d3e7463fd47" connectorType="officialboomi-X3979C-opena2-prod" hideSettings="false" operationId="b9cc6d37-56a7-48fe-818f-9e46cdf288a3" parameter-profile="4b3f5de4-c5a9-41e0-b011-af81775c1709">
               <parameters/>
@@ -71,7 +71,7 @@
             <dragpoint name="shape16.dragpoint1" toShape="shape19" x="1184.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="dataprocess_icon" name="shape12" shapetype="dataprocess" userlabel="Removes special characters. Additional mechanisms can be added." x="623.0" y="48.0">
+        <shape image="dataprocess_icon" name="shape12" shapetype="dataprocess" userlabel="Removes special characters. Additional mechanisms can be added." x="624.0" y="48.0">
           <configuration>
             <dataprocess>
               <step index="1" key="1" name="Search/Replace" processtype="1">
@@ -101,7 +101,7 @@
             <dragpoint name="shape12.dragpoint1" toShape="shape14" x="800.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="message_icon" name="shape19" shapetype="message" userlabel="Save only topics" x="1199.0" y="48.0">
+        <shape image="message_icon" name="shape19" shapetype="message" userlabel="Save only topics" x="1200.0" y="48.0">
           <configuration>
             <message combined="false">
               <msgTxt>{1}</msgTxt>
@@ -116,7 +116,7 @@
             <dragpoint name="shape19.dragpoint1" toShape="shape22" x="1376.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="processcall_icon" name="shape22" shapetype="processcall" userlabel="" x="1391.0" y="48.0">
+        <shape image="processcall_icon" name="shape22" shapetype="processcall" userlabel="" x="1392.0" y="48.0">
           <configuration>
             <processcall abort="true" processId="79eb5cf2-6eb9-414d-bae5-54b529036378" wait="true">
               <parameters/>
@@ -129,7 +129,7 @@
             <dragpoint identifier="shape6" name="shape22.dragpoint1" toShape="shape24" x="1568.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="map_icon" name="shape24" shapetype="map" userlabel="" x="1583.0" y="48.0">
+        <shape image="map_icon" name="shape24" shapetype="map" userlabel="" x="1584.0" y="48.0">
           <configuration>
             <map mapId="dd65535a-726e-4670-af97-c32d1bc0fdbb"/>
           </configuration>
@@ -137,13 +137,13 @@
             <dragpoint name="shape24.dragpoint1" toShape="shape26" x="1760.0" y="56.0"/>
           </dragpoints>
         </shape>
-        <shape image="returndocuments_icon" name="shape25" shapetype="returndocuments" x="1967.0" y="48.0">
+        <shape image="returndocuments_icon" name="shape25" shapetype="returndocuments" x="1968.0" y="48.0">
           <configuration>
             <returndocuments/>
           </configuration>
           <dragpoints/>
         </shape>
-        <shape image="dataprocess_icon" name="shape26" shapetype="dataprocess" userlabel="" x="1775.0" y="48.0">
+        <shape image="dataprocess_icon" name="shape26" shapetype="dataprocess" userlabel="" x="1776.0" y="48.0">
           <configuration>
             <dataprocess>
               <step index="1" key="1" name="Combine Documents" processtype="9">
